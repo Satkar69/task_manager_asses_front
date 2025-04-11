@@ -51,53 +51,6 @@ export const addNewtask = async (title, description) => {
   }
 };
 
-export const getTask = async (taskId) => {
-  try {
-    const response = await api.get(
-      endpoints.user.task.getTask.replace(":id", taskId)
-    );
-    return response.data;
-  } catch (error) {
-    if (error.response) {
-      // Extract the error message from the devException format
-      const errorData = error.response.data;
-      const errorMessage = errorData.message || "Error getting the task.";
-
-      throw new Error(errorMessage);
-    } else if (error.request) {
-      throw new Error(
-        "No response received from server. Please check your connection."
-      );
-    } else {
-      throw new Error("Error setting up request: " + error.message);
-    }
-  }
-};
-
-export const updateTask = async (taskId, taskData) => {
-  try {
-    const response = await api.patch(
-      endpoints.user.task.updateTask.replace(":id", taskId),
-      taskData
-    );
-    return response.data;
-  } catch (error) {
-    if (error.response) {
-      // Extract the error message from the devException format
-      const errorData = error.response.data;
-      const errorMessage = errorData.message || "Error updating the task.";
-
-      throw new Error(errorMessage);
-    } else if (error.request) {
-      throw new Error(
-        "No response received from server. Please check your connection."
-      );
-    } else {
-      throw new Error("Error setting up request: " + error.message);
-    }
-  }
-};
-
 export const deleteTask = async (taskId) => {
   try {
     const response = await api.delete(
