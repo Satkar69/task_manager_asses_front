@@ -21,7 +21,6 @@ This is the frontend for a Task Manager application built with **React** and **T
 ## 📁 Folder Structure
 
 ```bash
-task-manager-frontend/
 ├── public/
 ├── src/
 │   ├── api/ # API service functions
