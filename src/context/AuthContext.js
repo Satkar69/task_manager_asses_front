@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       await registerUser(username, email, password);
       return true;
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to register");
+      setError(err.message || "Failed to register");
       return false;
     }
   };
