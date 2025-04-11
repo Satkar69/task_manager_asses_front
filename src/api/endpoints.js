@@ -9,8 +9,6 @@ const endpoints = {
     task: {
       getAllTasks: "/task-manager/user/task/get-all",
       addNewTask: "/task-manager/user/task/add",
-      getTask: "/task-manager/user/task/get/:id",
-      updateTask: "/task-manager/user/task/update/:id",
       deleteTask: "/task-manager/user/task/delete/:id",
     },
   },
