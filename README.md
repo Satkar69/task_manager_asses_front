@@ -24,17 +24,17 @@ This is the frontend for a Task Manager application built with **React** and **T
 task-manager-frontend/
 ├── public/
 ├── src/
-│ ├── api/ # API service functions
-│ ├── components/ # Reusable UI components
-│ │ ├── auth/ # Authentication related components
-│ │ ├── layout/ # Layout components
-│ │ ├── tasks/ # Task related components
-│ │ └── ui/ # Shared UI elements (buttons, inputs, etc.)
-│ ├── context/ # React Context for state management
-│ ├── pages/ # Page components
-│ ├── App.js # Main application component
-│ ├── index.js # Entry point
-│ └── index.css # Global styles
+│   ├── api/ # API service functions
+│   ├── components/ # Reusable UI components
+│   │   ├── auth/ # Authentication related components
+│   │   ├── layout/ # Layout components
+│   │   ├── tasks/ # Task related components
+│   │   └── ui/ # Shared UI elements (buttons, inputs, etc.)
+│   ├── context/ # React Context for state management
+│   ├── pages/ # Page components
+│   ├── App.js # Main application component
+│   ├── index.js # Entry point
+│   └── index.css # Global styles
 ├── .env # Environment variables
 ├── package.json
 ├── tailwind.config.js
