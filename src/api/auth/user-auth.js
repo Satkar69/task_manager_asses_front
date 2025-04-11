@@ -1,14 +1,10 @@
 import endpoints from "../endpoints";
 import api from "../axios";
 
-export const loginUser = async (email, password) => {
+export const loginUser = async (credentials) => {
   try {
-    const response = await api.post(endpoints.auth.user.login, {
-      username,
-      email,
-      password,
-    });
-    return response;
+    const response = await api.post(endpoints.auth.user.login, credentials);
+    return response.data;
   } catch (error) {
     // Check if the error has a response from the server
     if (error.response) {
@@ -35,7 +31,7 @@ export const registerUser = async (username, email, password) => {
       email,
       password,
     });
-    return response;
+    return response.data;
   } catch (error) {
     if (error.response) {
       // Extract the error message from the devException format

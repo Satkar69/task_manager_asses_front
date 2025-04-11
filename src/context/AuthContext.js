@@ -1,6 +1,6 @@
 // src/context/AuthContext.js
 import { createContext, useContext, useState, useEffect } from "react";
-import { loginUser } from "../api/auth/user-auth";
+import { loginUser, registerUser } from "../api/auth/user-auth";
 
 const AuthContext = createContext();
 
@@ -24,18 +24,28 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = async (username, email, password) => {
+  const login = async (credentials) => {
     try {
       setError(null);
-      const response = await loginUser(username, email, password);
-      const { token, user } = response.data;
-
-      localStorage.setItem("token", token);
+      const response = await loginUser(credentials);
+      const { accessToken, user } = response.data;
+      localStorage.setItem("token", accessToken);
       localStorage.setItem("user", JSON.stringify(user));
       setCurrentUser(user);
       return true;
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to login");
+      setError(err.message || "Failed to login");
+      return false;
+    }
+  };
+
+  const register = async (username, email, password) => {
+    try {
+      setError(null);
+      await registerUser(username, email, password);
+      return true;
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to register");
       return false;
     }
   };
@@ -51,6 +61,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     error,
     login,
+    register,
     logout,
   };
 
